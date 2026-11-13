@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <h1>Xin chào ❤️</h1>
 
-    <button onclick="hello()">Bấm vào đây</button>
+    <button onclick="showEnvelope()">
+        Bấm vào đây
+    </button>
 
-    <button class="envelope" id="envelope" onclick="toggleEnvelope()">
+    <button class="envelope hidden" id="envelope"
+        onclick="toggleEnvelope()">
 
         <div class="envelope-back"></div>
 
@@ -23,14 +25,10 @@
         </div>
 
         <div class="envelope-front"></div>
-
         <div class="envelope-flap"></div>
-
         <div class="heart-seal">❤️</div>
-
     </button>
 
     <script src="script.js"></script>
-
 </body>
 </html>
