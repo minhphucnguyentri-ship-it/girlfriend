@@ -1,1 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background-image: url("https://24hstore.vn/upload_images/images/hinh-nen-trai-tim/hinh-anh-trai-tim-doc-dao_(2).jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px black;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4081;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
