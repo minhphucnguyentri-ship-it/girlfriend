@@ -117,7 +117,6 @@ button {
 /* =========================
    6. LÁ THƯ
 ========================= */
-
 .letter {
     position: absolute;
 
@@ -125,7 +124,7 @@ button {
     height: 145px;
 
     left: 10px;
-    bottom: -105px;
+    bottom: 10px;
 
     background: white;
     border-radius: 6px;
@@ -139,7 +138,6 @@ button {
     justify-content: center;
     align-items: center;
 
-    /* Nằm sau mặt trước phong bì */
     z-index: 2;
 
     transform: translateY(0);
@@ -163,12 +161,9 @@ button {
 .envelope-pocket {
     position: absolute;
     inset: 0;
-
     z-index: 3;
-
     pointer-events: none;
 }
-
 /* Mặt trước phong bì */
 
 .envelope-front {
@@ -241,12 +236,8 @@ button {
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
-
-    /* Đưa nắp ra phía sau lá thư */
     z-index: 1;
 }
-
-/* Lá thư trượt lên sau khi nắp mở */
 
 .envelope.open .letter {
     transform: translateY(-155px);
