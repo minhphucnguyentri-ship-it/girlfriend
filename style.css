@@ -11,6 +11,7 @@
 
 body {
     background-image: url("https://24hstore.vn/upload_images/images/hinh-nen-trai-tim/hinh-anh-trai-tim-doc-dao_(2).jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,6 +39,7 @@ h1 {
 
 button {
     padding: 12px 25px;
+
     border: none;
     border-radius: 10px;
 
@@ -84,11 +86,11 @@ button {
     width: 260px;
     height: 170px;
 
-    margin-top: 30px;
+    /* Nâng phong bì lên */
+    margin-top: 10px;
 
     padding: 0;
     border: none;
-    border-radius: 0;
 
     background: transparent;
 
@@ -98,6 +100,10 @@ button {
     overflow: visible;
 
     isolation: isolate;
+}
+
+.hidden {
+    display: none;
 }
 
 /* =========================
@@ -117,9 +123,6 @@ button {
 /* =========================
    6. LÁ THƯ
 ========================= */
-/* =========================
-   6. LÁ THƯ
-========================= */
 
 .letter {
     position: absolute;
@@ -135,6 +138,7 @@ button {
 
     color: #e75480;
     text-align: center;
+
     padding: 10px;
 
     display: flex;
@@ -144,8 +148,9 @@ button {
 
     z-index: 2;
 
-    /* Ẩn thư khi phong bì đóng */
+    /* Khi đóng, ẩn lá thư */
     opacity: 0;
+
     transform: translateY(0);
 
     transition:
@@ -169,10 +174,13 @@ button {
 .envelope-pocket {
     position: absolute;
     inset: 0;
+
     z-index: 3;
+
     pointer-events: none;
 }
-/* Mặt trước phong bì */
+
+/* Mặt trước */
 
 .envelope-front {
     position: absolute;
@@ -211,7 +219,6 @@ button {
 
     transition: transform 0.9s ease;
 
-    /* Khi đóng, nắp nằm trên cùng */
     z-index: 4;
 
     backface-visibility: hidden;
@@ -240,7 +247,7 @@ button {
    10. HIỆU ỨNG MỞ PHONG BÌ
 ========================= */
 
-/* Mở nắp phong bì */
+/* Mở nắp */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
@@ -248,19 +255,25 @@ button {
 }
 
 /* Lá thư trượt lên */
+
 .envelope.open .letter {
     transform: translateY(-155px);
     opacity: 1;
 }
 
 /* Ẩn trái tim */
+
 .envelope.open .heart-seal {
     opacity: 0;
 }
+
 /* =========================
-   11. ẨN PHONG BÌ
+   11. RESPONSIVE
 ========================= */
 
-.envelope.hidden {
-    display: none;
+@media (max-width: 480px) {
+    .envelope {
+        transform: scale(0.9);
+        margin-top: 10px;
+    }
 }
