@@ -17,3 +17,7 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+function toggleEnvelope() {
+    const envelope = document.getElementById("envelope");
+    envelope.classList.toggle("open");
+}
