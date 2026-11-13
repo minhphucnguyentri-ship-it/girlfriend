@@ -65,41 +65,51 @@ button {
 
 .envelope {
     position: relative;
-    width: 220px;
-    height: 145px;
+    width: 260px;
+    height: 170px;
     margin-top: 40px;
 
     display: block;
     padding: 0;
     border: none;
-    border-radius: 0;
+    border-radius: 10px;
     background: transparent;
 
     cursor: pointer;
-    perspective: 800px;
+    perspective: 1000px;
     overflow: visible;
-    z-index: 5;
     isolation: isolate;
+    z-index: 5;
 }
 
+/* Mặt sau */
 .envelope-back {
     position: absolute;
     inset: 0;
     background: #ffb6c9;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     z-index: 0;
 }
 
-/* Lá thư */
+/* Lá thư nằm bên trong */
 .letter {
     position: absolute;
-    left: 10px;
-    bottom: 5px;
-    width: 200px;
-    height: 125px;
+    left: 15px;
+    bottom: -65px;
 
-    background: white;
+    width: 230px;
+    height: 145px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #fff0f5
+    );
+
     border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
     z-index: 2;
 
     display: flex;
@@ -108,37 +118,42 @@ button {
     align-items: center;
 
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     color: #e75480;
 
     transform: translateY(0);
-    transition: transform 1.5s ease 0.5s;
+    transition: transform 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s;
 }
 
 .letter h2 {
-    font-size: 17px;
-    margin-bottom: 8px;
+    font-size: 19px;
+    margin-bottom: 12px;
 }
 
 .letter p {
-    font-size: 12px;
+    font-size: 13px;
 }
 
-/* Mặt trước phong bì */
+/* Túi phía trước phong bì */
 .envelope-front {
     position: absolute;
     inset: 0;
-    background: #ff8fab;
+
+    background: linear-gradient(
+        145deg,
+        #ff9bb5,
+        #ff759b
+    );
 
     clip-path: polygon(
-        0 0,
-        50% 60%,
-        100% 0,
+        0 35%,
+        50% 72%,
+        100% 35%,
         100% 100%,
         0 100%
     );
 
-    border-radius: 8px;
+    border-radius: 10px;
     z-index: 3;
 }
 
@@ -146,44 +161,57 @@ button {
 .envelope-flap {
     position: absolute;
     inset: 0;
-    background: #ffc2d1;
+
+    background: linear-gradient(
+        135deg,
+        #ffd0dc,
+        #ffabc2
+    );
 
     clip-path: polygon(
         0 0,
         100% 0,
-        50% 55%
+        50% 58%
     );
 
     transform-origin: top center;
-    transition: transform 0.8s ease;
+    transform: rotateX(0deg);
+
+    transition: transform 0.9s ease;
+    backface-visibility: visible;
+
     z-index: 4;
 }
 
-/* Trái tim trên phong bì */
+/* Trái tim niêm phong */
 .heart-seal {
     position: absolute;
     top: 48%;
     left: 50%;
 
     transform: translate(-50%, -50%);
-    font-size: 36px;
+    font-size: 38px;
 
     z-index: 5;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
 }
 
-/* Khi mở phong bì */
+/* Mở phong thư */
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
+/* Rút thư lên */
 .envelope.open .letter {
-    transform: translateY(-90px);
+    transform: translateY(-155px);
 }
 
+/* Ẩn trái tim niêm phong */
 .envelope.open .heart-seal {
     opacity: 0;
+    pointer-events: none;
 }
 
 /* Ẩn phong thư ban đầu */
