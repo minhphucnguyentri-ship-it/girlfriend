@@ -57,19 +57,50 @@ button {
     }
 }
 .envelope {
-    position: relative;
-    width: 220px;
-    height: 145px;
-    margin: auto;
-    z-index: 5;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25));
+    display: block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 800px;
+    overflow: visible;
 }
 
 .envelope-back {
     position: absolute;
     inset: 0;
     background: #ffb6c9;
-    border-radius: 10px;
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.letter {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    width: 200px;
+    height: 125px;
+    background: white;
+    border-radius: 5px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 1s ease;
+    color: #e75480;
+}
+
+.letter h2 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.letter p {
+    font-size: 12px;
 }
 
 .envelope-front {
@@ -77,7 +108,8 @@ button {
     inset: 0;
     background: #ff8fab;
     clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
-    border-radius: 10px;
+    border-radius: 8px;
+    z-index: 3;
 }
 
 .envelope-flap {
@@ -85,24 +117,27 @@ button {
     inset: 0;
     background: #ffc2d1;
     clip-path: polygon(0 0, 100% 0, 50% 55%);
-    z-index: 2;
+    transform-origin: top center;
+    transition: transform 0.8s ease, z-index 0s 0.4s;
+    z-index: 4;
 }
 
 .heart-seal {
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    z-index: 3;
-    animation: heartbeat 1s infinite;
+    transition: opacity 0.3s ease;
 }
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
+/* Khi mở phong thư */
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .letter {
+    transform: translateY(-95px);
+    transition-delay: 0.4s;
+}
+
+.envelope.open .heart-seal {
+    opacity: 0;
+    pointer-events: none;
 }
