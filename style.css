@@ -94,10 +94,8 @@ button {
     bottom: 5px;
     width: 200px;
     height: 125px;
-
     background: white;
     border-radius: 5px;
-
     z-index: 2;
 
     display: flex;
@@ -175,13 +173,8 @@ button {
 }
 
 .envelope.open .letter {
-    transform: translateY(-120px);
-    z-index: 6;
-}
-
-.envelope.open .heart-seal {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-90px);
+    z-index: 2;
 }
 
 .envelope.open .heart-seal {
