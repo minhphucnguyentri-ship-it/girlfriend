@@ -60,6 +60,7 @@ button {
     }
 }
 
+
 /* Phong thư */
 
 .envelope {
@@ -78,6 +79,7 @@ button {
     perspective: 800px;
     overflow: visible;
     z-index: 5;
+    isolation: isolate;
 }
 
 .envelope-back {
@@ -88,12 +90,14 @@ button {
     z-index: 0;
 }
 
+/* Lá thư */
 .letter {
     position: absolute;
     left: 10px;
     bottom: 5px;
     width: 200px;
     height: 125px;
+
     background: white;
     border-radius: 5px;
     z-index: 2;
@@ -108,7 +112,7 @@ button {
     color: #e75480;
 
     transform: translateY(0);
-    transition: transform 1.3s ease 0.4s;
+    transition: transform 1.5s ease 0.5s;
 }
 
 .letter h2 {
@@ -119,10 +123,11 @@ button {
 .letter p {
     font-size: 12px;
 }
+
+/* Mặt trước phong bì */
 .envelope-front {
     position: absolute;
     inset: 0;
-
     background: #ff8fab;
 
     clip-path: polygon(
@@ -137,10 +142,10 @@ button {
     z-index: 3;
 }
 
+/* Nắp phong bì */
 .envelope-flap {
     position: absolute;
     inset: 0;
-
     background: #ffc2d1;
 
     clip-path: polygon(
@@ -154,6 +159,7 @@ button {
     z-index: 4;
 }
 
+/* Trái tim trên phong bì */
 .heart-seal {
     position: absolute;
     top: 48%;
@@ -166,7 +172,7 @@ button {
     transition: opacity 0.3s ease;
 }
 
-
+/* Khi mở phong bì */
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
@@ -174,15 +180,18 @@ button {
 
 .envelope.open .letter {
     transform: translateY(-90px);
-    z-index: 2;
 }
 
 .envelope.open .heart-seal {
     opacity: 0;
 }
+
+/* Ẩn phong thư ban đầu */
 .envelope.hidden {
     display: none;
 }
+
+/* Hiệu ứng xuất hiện */
 .envelope:not(.hidden) {
     animation: appearEnvelope 0.8s ease;
 }
