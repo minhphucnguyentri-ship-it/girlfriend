@@ -122,16 +122,76 @@ button {
     font-size: 13px;
 }
 
-/* Lớp túi phong bì che lá thư */
+
+/* PHONG THƯ */
+
+.envelope {
+    position: relative;
+    width: 260px;
+    height: 170px;
+    margin-top: 40px;
+    display: block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1000px;
+    overflow: visible;
+    isolation: isolate;
+}
+
+/* Mặt sau */
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #ffb6c9;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+/* Lá thư */
+.letter {
+    position: absolute;
+    left: 15px;
+    bottom: 5px;
+    width: 230px;
+    height: 145px;
+    background: white;
+    border-radius: 5px;
+
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #e75480;
+    text-align: center;
+    padding: 10px;
+
+    transform: translateY(0);
+    transition: transform 1.8s ease 0.5s;
+}
+
+.letter h2 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.letter p {
+    font-size: 13px;
+}
+
+/* Túi phong bì */
 .envelope-pocket {
     position: absolute;
     inset: 0;
-    overflow: hidden;
-    border-radius: 10px;
     z-index: 2;
+    pointer-events: none;
 }
 
-/* Mặt trước */
+/* Mặt trước - có hình chữ V */
 .envelope-front {
     position: absolute;
     inset: 0;
