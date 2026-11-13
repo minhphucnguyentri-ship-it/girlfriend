@@ -123,7 +123,6 @@ button {
 /* =========================
    6. LÁ THƯ
 ========================= */
-
 .letter {
     position: absolute;
 
@@ -138,7 +137,6 @@ button {
 
     color: #e75480;
     text-align: center;
-
     padding: 10px;
 
     display: flex;
@@ -148,14 +146,12 @@ button {
 
     z-index: 2;
 
-    /* Khi đóng, ẩn lá thư */
-    opacity: 0;
+    /* Luôn hiển thị */
+    opacity: 1;
 
     transform: translateY(0);
 
-    transition:
-        transform 1.2s ease 0.9s,
-        opacity 0.3s ease 0.9s;
+    transition: transform 1.2s ease 0.9s;
 }
 
 .letter h2 {
