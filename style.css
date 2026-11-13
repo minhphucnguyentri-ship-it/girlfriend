@@ -92,24 +92,25 @@ button {
     position: absolute;
     left: 10px;
     bottom: 5px;
-
     width: 200px;
     height: 125px;
 
     background: white;
     border-radius: 5px;
-    z-index: 1;
+
+    z-index: 2;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
 
+    text-align: center;
     padding: 10px;
     color: #e75480;
 
-    transition: transform 1s ease;
+    transform: translateY(0);
+    transition: transform 1.3s ease 0.4s;
 }
 
 .letter h2 {
@@ -120,7 +121,6 @@ button {
 .letter p {
     font-size: 12px;
 }
-
 .envelope-front {
     position: absolute;
     inset: 0;
@@ -175,8 +175,13 @@ button {
 }
 
 .envelope.open .letter {
-    transform: translateY(-95px);
-    transition-delay: 0.4s;
+    transform: translateY(-120px);
+    z-index: 6;
+}
+
+.envelope.open .heart-seal {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .envelope.open .heart-seal {
