@@ -111,7 +111,7 @@ button {
     width: 240px;
     height: 145px;
     left: 10px;
-    bottom: -105px;
+    bottom: 10px;
 
     background: white;
     border-radius: 6px;
@@ -128,7 +128,10 @@ button {
     z-index: 2;
 
     transform: translateY(0);
-    transition: transform 1.2s ease 0.9s;
+
+    transition:
+        transform 1.2s ease 0.9s,
+        z-index 0s linear 0.9s;
 }
 
 .letter h2 {
@@ -220,6 +223,7 @@ button {
 
 .envelope.open .letter {
     transform: translateY(-155px);
+    z-index: 6;
 }
 
 /* Ẩn trái tim */
