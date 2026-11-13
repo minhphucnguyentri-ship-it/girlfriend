@@ -56,3 +56,53 @@ button {
         opacity: 0;
     }
 }
+.envelope {
+    position: relative;
+    width: 220px;
+    height: 145px;
+    margin: auto;
+    z-index: 5;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25));
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #ffb6c9;
+    border-radius: 10px;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #ff8fab;
+    clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 10px;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #ffc2d1;
+    clip-path: polygon(0 0, 100% 0, 50% 55%);
+    z-index: 2;
+}
+
+.heart-seal {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    z-index: 3;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
