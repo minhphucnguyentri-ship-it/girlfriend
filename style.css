@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,6 @@
 
 body {
     background-image: url("https://24hstore.vn/upload_images/images/hinh-nen-trai-tim/hinh-anh-trai-tim-doc-dao_(2).jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -37,6 +37,9 @@ button {
     font-size: 18px;
     cursor: pointer;
 }
+
+/* Trái tim bay */
+
 .heart {
     position: fixed;
     bottom: -50px;
@@ -56,14 +59,25 @@ button {
         opacity: 0;
     }
 }
+
+/* Phong thư */
+
 .envelope {
+    position: relative;
+    width: 220px;
+    height: 145px;
+    margin-top: 40px;
+
     display: block;
     padding: 0;
     border: none;
+    border-radius: 0;
     background: transparent;
+
     cursor: pointer;
     perspective: 800px;
     overflow: visible;
+    z-index: 5;
 }
 
 .envelope-back {
@@ -78,20 +92,24 @@ button {
     position: absolute;
     left: 10px;
     bottom: 5px;
+
     width: 200px;
     height: 125px;
+
     background: white;
     border-radius: 5px;
     z-index: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
     padding: 10px;
-    box-sizing: border-box;
-    transition: transform 1s ease;
     color: #e75480;
+
+    transition: transform 1s ease;
 }
 
 .letter h2 {
@@ -106,8 +124,17 @@ button {
 .envelope-front {
     position: absolute;
     inset: 0;
+
     background: #ff8fab;
-    clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+
+    clip-path: polygon(
+        0 0,
+        50% 60%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
     border-radius: 8px;
     z-index: 3;
 }
@@ -115,18 +142,33 @@ button {
 .envelope-flap {
     position: absolute;
     inset: 0;
+
     background: #ffc2d1;
-    clip-path: polygon(0 0, 100% 0, 50% 55%);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 55%
+    );
+
     transform-origin: top center;
-    transition: transform 0.8s ease, z-index 0s 0.4s;
+    transition: transform 0.8s ease;
     z-index: 4;
 }
 
 .heart-seal {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+
+    z-index: 5;
     transition: opacity 0.3s ease;
 }
 
-/* Khi mở phong thư */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
@@ -139,5 +181,4 @@ button {
 
 .envelope.open .heart-seal {
     opacity: 0;
-    pointer-events: none;
 }
