@@ -1,39 +1,47 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <h1>Xin chào ❤️</h1>
 
     <button onclick="showEnvelope()">
         Bấm vào đây ❤️
     </button>
 
-    <button class="envelope hidden" id="envelope"
-        onclick="toggleEnvelope()">
+    <div class="envelope hidden" id="envelope"
+         onclick="toggleEnvelope()">
 
+        <!-- Mặt sau -->
         <div class="envelope-back"></div>
 
+        <!-- Lá thư -->
         <div class="letter">
             <h2>❤️ Gửi bạn ❤️</h2>
             <p>Chúc bạn luôn vui vẻ và hạnh phúc!</p>
         </div>
 
+        <!-- Mặt trước -->
         <div class="envelope-pocket">
             <div class="envelope-front"></div>
         </div>
 
+        <!-- Nắp -->
         <div class="envelope-flap"></div>
 
+        <!-- Trái tim -->
         <div class="heart-seal">❤️</div>
 
-    </button>
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
