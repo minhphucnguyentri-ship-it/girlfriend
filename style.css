@@ -182,3 +182,21 @@ button {
 .envelope.open .heart-seal {
     opacity: 0;
 }
+.envelope.hidden {
+    display: none;
+}
+.envelope:not(.hidden) {
+    animation: appearEnvelope 0.8s ease;
+}
+
+@keyframes appearEnvelope {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
