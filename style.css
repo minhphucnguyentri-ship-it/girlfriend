@@ -1,5 +1,7 @@
 
-/* CÀI ĐẶT CHUNG */
+/* =========================
+   CÀI ĐẶT CHUNG
+========================= */
 
 * {
     margin: 0;
@@ -25,14 +27,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* TIÊU ĐỀ */
+/* =========================
+   TIÊU ĐỀ VÀ NÚT
+========================= */
 
 h1 {
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px black;
 }
-
-/* NÚT BẤM */
 
 button {
     padding: 12px 25px;
@@ -44,7 +46,9 @@ button {
     cursor: pointer;
 }
 
-/* TRÁI TIM BAY */
+/* =========================
+   TRÁI TIM BAY
+========================= */
 
 .heart {
     position: fixed;
@@ -66,7 +70,9 @@ button {
     }
 }
 
-/* PHONG BÌ */
+/* =========================
+   PHONG BÌ
+========================= */
 
 .envelope {
     position: relative;
@@ -85,7 +91,7 @@ button {
     isolation: isolate;
 }
 
-/* MẶT SAU PHONG BÌ */
+/* Mặt sau phong bì */
 
 .envelope-back {
     position: absolute;
@@ -97,24 +103,22 @@ button {
     z-index: 0;
 }
 
-/* LÁ THƯ */
+/* Lá thư */
 
 .letter {
     position: absolute;
 
-    left: 10px;
-    bottom: -105px;
-
     width: 240px;
     height: 145px;
-
-    padding: 10px;
+    left: 10px;
+    bottom: -105px;
 
     background: white;
     border-radius: 6px;
 
     color: #e75480;
     text-align: center;
+    padding: 10px;
 
     display: flex;
     flex-direction: column;
@@ -124,7 +128,7 @@ button {
     z-index: 2;
 
     transform: translateY(0);
-    transition: transform 1.2s ease;
+    transition: transform 1.2s ease 0.9s;
 }
 
 .letter h2 {
@@ -136,7 +140,7 @@ button {
     font-size: 13px;
 }
 
-/* TÚI PHONG BÌ */
+/* Túi phong bì */
 
 .envelope-pocket {
     position: absolute;
@@ -146,7 +150,7 @@ button {
     pointer-events: none;
 }
 
-/* MẶT TRƯỚC PHONG BÌ */
+/* Mặt trước phong bì */
 
 .envelope-front {
     position: absolute;
@@ -164,7 +168,7 @@ button {
     );
 }
 
-/* NẮP PHONG BÌ */
+/* Nắp phong bì */
 
 .envelope-flap {
     position: absolute;
@@ -179,12 +183,14 @@ button {
     );
 
     transform-origin: top center;
+    transform: rotateX(0deg);
+
     transition: transform 0.9s ease;
 
     z-index: 4;
 }
 
-/* TRÁI TIM TRÊN PHONG BÌ */
+/* Trái tim trên phong bì */
 
 .heart-seal {
     position: absolute;
@@ -200,26 +206,29 @@ button {
     transition: opacity 0.4s ease;
 }
 
-/* KHI MỞ PHONG BÌ */
+/* =========================
+   HIỆU ỨNG MỞ PHONG BÌ
+========================= */
+
+/* Mở nắp trước */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
-    z-index: 1;
 }
 
-/* LÁ THƯ TRƯỢT LÊN */
+/* Sau 0.9 giây, lá thư trượt lên */
 
 .envelope.open .letter {
     transform: translateY(-155px);
 }
 
-/* ẨN TRÁI TIM */
+/* Ẩn trái tim */
 
 .envelope.open .heart-seal {
     opacity: 0;
 }
 
-/* ẨN PHONG BÌ BAN ĐẦU */
+/* Ẩn phong bì ban đầu */
 
 .envelope.hidden {
     display: none;
