@@ -86,7 +86,6 @@ button {
     width: 260px;
     height: 170px;
 
-    /* Nâng phong bì lên */
     margin-top: 10px;
 
     padding: 0;
@@ -107,7 +106,7 @@ button {
 }
 
 /* =========================
-   5. MẶT SAU PHONG BÌ
+   5. MẶT SAU
 ========================= */
 
 .envelope-back {
@@ -123,6 +122,7 @@ button {
 /* =========================
    6. LÁ THƯ
 ========================= */
+
 .letter {
     position: absolute;
 
@@ -137,6 +137,7 @@ button {
 
     color: #e75480;
     text-align: center;
+
     padding: 10px;
 
     display: flex;
@@ -144,10 +145,8 @@ button {
     justify-content: center;
     align-items: center;
 
+    /* Luôn nằm sau mặt trước */
     z-index: 2;
-
-    /* Luôn hiển thị */
-    opacity: 1;
 
     transform: translateY(0);
 
@@ -164,7 +163,7 @@ button {
 }
 
 /* =========================
-   7. TÚI PHONG BÌ
+   7. MẶT TRƯỚC PHONG BÌ
 ========================= */
 
 .envelope-pocket {
@@ -175,8 +174,6 @@ button {
 
     pointer-events: none;
 }
-
-/* Mặt trước */
 
 .envelope-front {
     position: absolute;
@@ -221,7 +218,7 @@ button {
 }
 
 /* =========================
-   9. TRÁI TIM TRÊN PHONG BÌ
+   9. TRÁI TIM
 ========================= */
 
 .heart-seal {
@@ -240,22 +237,24 @@ button {
 }
 
 /* =========================
-   10. HIỆU ỨNG MỞ PHONG BÌ
+   10. HIỆU ỨNG MỞ
 ========================= */
 
-/* Mở nắp */
-/* Mở nắp */
+/* Mở nắp trước */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
-/* Kéo thư lên */
+/* Lá thư trượt lên */
+
 .envelope.open .letter {
     transform: translateY(-155px);
 }
 
 /* Ẩn trái tim */
+
 .envelope.open .heart-seal {
     opacity: 0;
 }
