@@ -1,6 +1,6 @@
 
 /* =========================
-   CÀI ĐẶT CHUNG
+   1. CÀI ĐẶT CHUNG
 ========================= */
 
 * {
@@ -28,7 +28,7 @@ body {
 }
 
 /* =========================
-   TIÊU ĐỀ VÀ NÚT
+   2. TIÊU ĐỀ VÀ NÚT
 ========================= */
 
 h1 {
@@ -40,21 +40,25 @@ button {
     padding: 12px 25px;
     border: none;
     border-radius: 10px;
+
     background: #ff4081;
     color: white;
+
     font-size: 18px;
     cursor: pointer;
 }
 
 /* =========================
-   TRÁI TIM BAY
+   3. TRÁI TIM BAY
 ========================= */
 
 .heart {
     position: fixed;
     bottom: -50px;
+
     pointer-events: none;
     z-index: 10;
+
     animation: flyUp linear forwards;
 }
 
@@ -71,27 +75,34 @@ button {
 }
 
 /* =========================
-   PHONG BÌ
+   4. PHONG BÌ
 ========================= */
 
 .envelope {
     position: relative;
+
     width: 260px;
     height: 170px;
+
     margin-top: 40px;
 
     padding: 0;
     border: none;
     border-radius: 0;
+
     background: transparent;
 
     cursor: pointer;
+
     perspective: 1000px;
     overflow: visible;
+
     isolation: isolate;
 }
 
-/* Mặt sau phong bì */
+/* =========================
+   5. MẶT SAU PHONG BÌ
+========================= */
 
 .envelope-back {
     position: absolute;
@@ -103,15 +114,18 @@ button {
     z-index: 0;
 }
 
-/* Lá thư */
+/* =========================
+   6. LÁ THƯ
+========================= */
 
 .letter {
     position: absolute;
 
     width: 240px;
     height: 145px;
+
     left: 10px;
-    bottom: 10px;
+    bottom: -105px;
 
     background: white;
     border-radius: 6px;
@@ -125,13 +139,12 @@ button {
     justify-content: center;
     align-items: center;
 
+    /* Nằm sau mặt trước phong bì */
     z-index: 2;
 
     transform: translateY(0);
 
-    transition:
-        transform 1.2s ease 0.9s,
-        z-index 0s linear 0.9s;
+    transition: transform 1.2s ease 0.9s;
 }
 
 .letter h2 {
@@ -143,13 +156,16 @@ button {
     font-size: 13px;
 }
 
-/* Túi phong bì */
+/* =========================
+   7. TÚI PHONG BÌ
+========================= */
 
 .envelope-pocket {
     position: absolute;
     inset: 0;
 
     z-index: 3;
+
     pointer-events: none;
 }
 
@@ -171,7 +187,9 @@ button {
     );
 }
 
-/* Nắp phong bì */
+/* =========================
+   8. NẮP PHONG BÌ
+========================= */
 
 .envelope-flap {
     position: absolute;
@@ -190,10 +208,15 @@ button {
 
     transition: transform 0.9s ease;
 
+    /* Khi đóng, nắp nằm trên cùng */
     z-index: 4;
+
+    backface-visibility: hidden;
 }
 
-/* Trái tim trên phong bì */
+/* =========================
+   9. TRÁI TIM TRÊN PHONG BÌ
+========================= */
 
 .heart-seal {
     position: absolute;
@@ -206,24 +229,27 @@ button {
     font-size: 32px;
 
     z-index: 5;
+
     transition: opacity 0.4s ease;
 }
 
 /* =========================
-   HIỆU ỨNG MỞ PHONG BÌ
+   10. HIỆU ỨNG MỞ PHONG BÌ
 ========================= */
 
-/* Mở nắp trước */
+/* Mở nắp phong bì */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
+
+    /* Đưa nắp ra phía sau lá thư */
+    z-index: 1;
 }
 
-/* Sau 0.9 giây, lá thư trượt lên */
+/* Lá thư trượt lên sau khi nắp mở */
 
 .envelope.open .letter {
     transform: translateY(-155px);
-    z-index: 6;
 }
 
 /* Ẩn trái tim */
@@ -232,7 +258,9 @@ button {
     opacity: 0;
 }
 
-/* Ẩn phong bì ban đầu */
+/* =========================
+   11. ẨN PHONG BÌ
+========================= */
 
 .envelope.hidden {
     display: none;
