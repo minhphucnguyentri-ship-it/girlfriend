@@ -1,4 +1,6 @@
 
+/* CÀI ĐẶT CHUNG */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,10 +25,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* TIÊU ĐỀ */
+
 h1 {
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px black;
 }
+
+/* NÚT BẤM */
 
 button {
     padding: 12px 25px;
@@ -38,7 +44,7 @@ button {
     cursor: pointer;
 }
 
-/* Trái tim bay */
+/* TRÁI TIM BAY */
 
 .heart {
     position: fixed;
@@ -60,57 +66,65 @@ button {
     }
 }
 
-
-/* Phong thư */
-
-/* PHONG THƯ */
+/* PHONG BÌ */
 
 .envelope {
     position: relative;
     width: 260px;
     height: 170px;
     margin-top: 40px;
-    display: block;
+
     padding: 0;
     border: none;
+    border-radius: 0;
     background: transparent;
+
     cursor: pointer;
     perspective: 1000px;
     overflow: visible;
     isolation: isolate;
 }
 
-/* Mặt sau */
+/* MẶT SAU PHONG BÌ */
+
 .envelope-back {
     position: absolute;
     inset: 0;
+
     background: #ffb6c9;
     border-radius: 10px;
+
     z-index: 0;
 }
 
-/* Lá thư */
+/* LÁ THƯ */
+
 .letter {
     position: absolute;
-    left: 15px;
-    bottom: 5px;
-    width: 230px;
+
+    left: 10px;
+    bottom: -105px;
+
+    width: 240px;
     height: 145px;
+
+    padding: 10px;
+
     background: white;
-    border-radius: 5px;
-    z-index: 1;
+    border-radius: 6px;
+
+    color: #e75480;
+    text-align: center;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    color: #e75480;
-    text-align: center;
-    padding: 10px;
+    z-index: 2;
 
     transform: translateY(0);
-    transition: transform 1.8s ease 0.5s;
+    transition: transform 1.2s ease;
 }
 
 .letter h2 {
@@ -122,80 +136,24 @@ button {
     font-size: 13px;
 }
 
+/* TÚI PHONG BÌ */
 
-/* PHONG THƯ */
-
-.envelope {
-    position: relative;
-    width: 260px;
-    height: 170px;
-    margin-top: 40px;
-    display: block;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    perspective: 1000px;
-    overflow: visible;
-    isolation: isolate;
-}
-
-/* Mặt sau */
-.envelope-back {
-    position: absolute;
-    inset: 0;
-    background: #ffb6c9;
-    border-radius: 10px;
-    z-index: 0;
-}
-
-/* Lá thư */
-.letter {
-    position: absolute;
-    left: 15px;
-    bottom: 5px;
-    width: 230px;
-    height: 145px;
-    background: white;
-    border-radius: 5px;
-
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    color: #e75480;
-    text-align: center;
-    padding: 10px;
-
-    transform: translateY(0);
-    transition: transform 1.8s ease 0.5s;
-}
-
-.letter h2 {
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-
-.letter p {
-    font-size: 13px;
-}
-
-/* Túi phong bì */
 .envelope-pocket {
     position: absolute;
     inset: 0;
-    z-index: 2;
+
+    z-index: 3;
     pointer-events: none;
 }
 
-/* Mặt trước - có hình chữ V */
+/* MẶT TRƯỚC PHONG BÌ */
+
 .envelope-front {
     position: absolute;
     inset: 0;
+
     background: #ff8fab;
+    border-radius: 10px;
 
     clip-path: polygon(
         0 35%,
@@ -206,10 +164,12 @@ button {
     );
 }
 
-/* Nắp */
+/* NẮP PHONG BÌ */
+
 .envelope-flap {
     position: absolute;
     inset: 0;
+
     background: #ffc2d1;
 
     clip-path: polygon(
@@ -220,36 +180,47 @@ button {
 
     transform-origin: top center;
     transition: transform 0.9s ease;
-    z-index: 3;
+
+    z-index: 4;
 }
 
-/* Trái tim */
+/* TRÁI TIM TRÊN PHONG BÌ */
+
 .heart-seal {
     position: absolute;
+
     top: 48%;
     left: 50%;
+
     transform: translate(-50%, -50%);
-    font-size: 38px;
-    z-index: 4;
+
+    font-size: 32px;
+
+    z-index: 5;
     transition: opacity 0.4s ease;
 }
 
-/* Mở nắp */
+/* KHI MỞ PHONG BÌ */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
+    z-index: 1;
 }
 
-/* Rút thư */
+/* LÁ THƯ TRƯỢT LÊN */
+
 .envelope.open .letter {
     transform: translateY(-155px);
 }
 
-/* Ẩn trái tim */
+/* ẨN TRÁI TIM */
+
 .envelope.open .heart-seal {
     opacity: 0;
 }
 
-/* Ẩn phong thư ban đầu */
+/* ẨN PHONG BÌ BAN ĐẦU */
+
 .envelope.hidden {
     display: none;
 }
