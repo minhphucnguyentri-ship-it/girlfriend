@@ -1,32 +1,78 @@
 
 /* =========================
-   1. HIỆN PHONG BÌ
+   1. BIẾN ĐIỀU KHIỂN
+========================= */
+
+let isAnimating = false;
+
+/* =========================
+   2. HIỆN PHONG BÌ
 ========================= */
 
 function showEnvelope() {
     const envelope = document.getElementById("envelope");
     const button = document.getElementById("openButton");
 
-    // Ẩn nút bấm
     button.style.display = "none";
-
-    // Hiện phong bì
     envelope.classList.remove("hidden");
 }
 
 /* =========================
-   2. MỞ / ĐÓNG PHONG BÌ
+   3. MỞ / ĐÓNG PHONG BÌ
 ========================= */
 
 function toggleEnvelope() {
     const envelope = document.getElementById("envelope");
 
-    // Chuyển đổi trạng thái mở và đóng
-    envelope.classList.toggle("open");
+    // Không cho bấm khi hiệu ứng đang chạy
+    if (isAnimating) {
+        return;
+    }
+
+    isAnimating = true;
+
+    // ĐANG MỞ → ĐÓNG
+    if (envelope.classList.contains("open")) {
+
+        // Đưa thư vào trong
+        envelope.classList.remove("letter-out");
+
+        // Chờ 2 giây rồi đóng nắp
+        setTimeout(() => {
+
+            envelope.classList.remove("open");
+
+            // Chờ nắp đóng xong
+            setTimeout(() => {
+                isAnimating = false;
+            }, 900);
+
+        }, 2000);
+
+    }
+
+    // ĐANG ĐÓNG → MỞ
+    else {
+
+        // Mở nắp
+        envelope.classList.add("open");
+
+        // Chờ 1 giây rồi kéo thư ra
+        setTimeout(() => {
+
+            envelope.classList.add("letter-out");
+
+            // Chờ thư trượt xong
+            setTimeout(() => {
+                isAnimating = false;
+            }, 1200);
+
+        }, 1000);
+    }
 }
 
 /* =========================
-   3. TẠO TRÁI TIM BAY
+   4. TẠO TRÁI TIM BAY
 ========================= */
 
 function createHeart() {
@@ -35,7 +81,7 @@ function createHeart() {
     heart.className = "heart";
     heart.textContent = "❤️";
 
-    // Vị trí xuất hiện ngẫu nhiên
+    // Vị trí ngẫu nhiên
     heart.style.left = Math.random() * 100 + "vw";
 
     // Kích thước ngẫu nhiên
@@ -55,8 +101,7 @@ function createHeart() {
 }
 
 /* =========================
-   4. TẠO TRÁI TIM LIÊN TỤC
+   5. TẠO TRÁI TIM LIÊN TỤC
 ========================= */
 
-// Cứ 0,5 giây tạo một trái tim
 setInterval(createHeart, 500);
