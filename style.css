@@ -149,7 +149,7 @@ button {
     z-index: 2;
 
     transform: translateY(0);
-    transition: transform 1s ease;
+    transition: transform 1.2s ease;
 }
 
 .letter h2 {
@@ -159,6 +159,12 @@ button {
 
 .letter p {
     font-size: 17px;
+}
+
+/* Lá thư trượt ra */
+
+.envelope.letter-out .letter {
+    transform: translateY(-120px);
 }
 
 /* =========================
@@ -249,7 +255,7 @@ button {
 }
 
 /* =========================
-   10. TRÁI TIM TRÊN PHONG BÌ
+   10. TRÁI TIM
 ========================= */
 
 .heart-seal {
@@ -267,23 +273,13 @@ button {
 }
 
 /* =========================
-   11. HIỆU ỨNG MỞ PHONG BÌ
+   11. HIỆU ỨNG MỞ
 ========================= */
-
-/* Nắp lật ra phía sau */
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
-
-/* Lá thư trồi lên */
-
-.envelope.open .letter {
-    transform: translateY(-120px);
-}
-
-/* Ẩn trái tim */
 
 .envelope.open .heart-seal {
     opacity: 0;
