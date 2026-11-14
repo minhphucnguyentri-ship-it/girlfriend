@@ -34,7 +34,7 @@ body {
     overflow-x: hidden;
 }
 
-/* XÓA CÁC LỚP PHỦ MÀU ĐỎ */
+/* Loại bỏ lớp phủ của body */
 
 body::before,
 body::after {
@@ -53,6 +53,7 @@ h1 {
 
 button {
     padding: 12px 25px;
+
     border: none;
     border-radius: 10px;
 
@@ -101,9 +102,10 @@ button {
 
     margin-top: 30px;
 
-    background: transparent;
-    border: none;
     padding: 0;
+    border: none;
+
+    background: transparent;
 
     cursor: pointer;
     perspective: 1000px;
@@ -117,7 +119,7 @@ button {
 }
 
 /* =========================
-   5. MẶT SAU
+   5. MẶT SAU PHONG BÌ
 ========================= */
 
 .envelope-back {
@@ -172,7 +174,7 @@ button {
 }
 
 /* =========================
-   7. MẶT TRƯỚC
+   7. MẶT TRƯỚC PHONG BÌ
 ========================= */
 
 .envelope-pocket {
@@ -189,6 +191,8 @@ button {
 
     background: #ff8fab;
     border-radius: 12px;
+
+    /* Đường chữ V */
 
     clip-path: polygon(
         0 35%,
@@ -209,10 +213,14 @@ button {
 
     background: #ffc2d1;
 
+    /* Khớp chính xác với mặt trước */
+
     clip-path: polygon(
         0 0,
         100% 0,
-        50% 58%
+        100% 35%,
+        50% 75%,
+        0 35%
     );
 
     transform-origin: top center;
@@ -246,15 +254,21 @@ button {
    10. HIỆU ỨNG MỞ PHONG BÌ
 ========================= */
 
+/* Lật nắp */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
+/* Lá thư trượt lên */
+
 .envelope.open .letter {
     transform: translateY(-260px);
     z-index: 4;
 }
+
+/* Ẩn trái tim */
 
 .envelope.open .heart-seal {
     opacity: 0;
