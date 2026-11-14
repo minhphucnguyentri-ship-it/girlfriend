@@ -30,7 +30,7 @@ function toggleEnvelope() {
         // Đưa thư vào trong
         envelope.classList.remove("letter-out");
 
-        // Chờ 2 giây rồi đóng nắp
+        // Chờ 1 giây rồi đóng nắp
         setTimeout(() => {
             envelope.classList.remove("open");
 
