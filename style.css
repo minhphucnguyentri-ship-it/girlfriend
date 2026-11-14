@@ -64,7 +64,7 @@ button {
     bottom: -50px;
 
     pointer-events: none;
-    z-index: 10;
+    z-index: 100;
 
     animation: flyUp linear forwards;
 }
@@ -93,9 +93,6 @@ button {
 
     margin-top: 30px;
 
-    padding: 0;
-    border: none;
-
     background: transparent;
 
     cursor: pointer;
@@ -110,7 +107,7 @@ button {
 }
 
 /* =========================
-   5. MẶT SAU PHONG BÌ
+   5. MẶT SAU
 ========================= */
 
 .envelope-back {
@@ -152,7 +149,7 @@ button {
     z-index: 2;
 
     transform: translateY(0);
-    transition: transform 1.2s ease 0.3s;
+    transition: transform 1s ease;
 }
 
 .letter h2 {
@@ -165,14 +162,46 @@ button {
 }
 
 /* =========================
-   7. MẶT TRƯỚC PHONG BÌ
+   7. HAI CÁNH BÊN
+========================= */
+
+.envelope-side {
+    position: absolute;
+    inset: 0;
+
+    background: #ffb6c9;
+
+    z-index: 3;
+    pointer-events: none;
+}
+
+.envelope-side.left {
+    clip-path: polygon(
+        0 0,
+        50% 0,
+        50% 75%,
+        0 35%
+    );
+}
+
+.envelope-side.right {
+    clip-path: polygon(
+        50% 0,
+        100% 0,
+        100% 35%,
+        50% 75%
+    );
+}
+
+/* =========================
+   8. MẶT TRƯỚC
 ========================= */
 
 .envelope-pocket {
     position: absolute;
     inset: 0;
 
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
 }
 
@@ -193,7 +222,7 @@ button {
 }
 
 /* =========================
-   8. NẮP PHONG BÌ
+   9. NẮP PHONG BÌ
 ========================= */
 
 .envelope-flap {
@@ -215,12 +244,12 @@ button {
 
     transition: transform 0.9s ease;
 
-    z-index: 4;
+    z-index: 5;
     backface-visibility: visible;
 }
 
 /* =========================
-   9. TRÁI TIM TRÊN PHONG BÌ
+   10. TRÁI TIM TRÊN PHONG BÌ
 ========================= */
 
 .heart-seal {
@@ -233,32 +262,35 @@ button {
 
     font-size: 48px;
 
-    z-index: 5;
+    z-index: 6;
     transition: opacity 0.4s ease;
 }
 
 /* =========================
-   10. HIỆU ỨNG MỞ PHONG BÌ
+   11. HIỆU ỨNG MỞ PHONG BÌ
 ========================= */
 
 /* Nắp lật ra phía sau */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
-/* Lá thư trồi lên từ từ */
+/* Lá thư trồi lên */
+
 .envelope.open .letter {
     transform: translateY(-120px);
-    z-index: 2;
 }
 
 /* Ẩn trái tim */
+
 .envelope.open .heart-seal {
     opacity: 0;
 }
+
 /* =========================
-   11. RESPONSIVE
+   12. RESPONSIVE
 ========================= */
 
 @media (max-width: 500px) {
