@@ -247,7 +247,6 @@ button {
 
     backface-visibility: visible;
 }
-
 /* =========================
    9. TRÁI TIM TRÊN PHONG BÌ
 ========================= */
@@ -274,10 +273,9 @@ button {
 /* Nắp lật ra phía sau */
 
 .envelope.open .envelope-flap {
-    transform: rotateX(180deg);
+    transform: rotateX(-180deg);
     z-index: 0;
 }
-
 /* Lá thư trượt lên */
 
 .envelope.open .letter {
