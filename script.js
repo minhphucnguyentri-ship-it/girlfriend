@@ -1,270 +1,54 @@
 
 /* =========================
-   1. CÀI ĐẶT CHUNG
+   1. HIỆN PHONG BÌ
 ========================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+function showEnvelope() {
+    const envelope = document.getElementById("envelope");
+    const button = document.getElementById("openButton");
 
-body {
-    background-image: url("https://24hstore.vn/upload_images/images/hinh-nen-trai-tim/hinh-anh-trai-tim-doc-dao_(2).jpg");
+    // Ẩn nút
+    button.style.display = "none";
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-    font-family: Arial, sans-serif;
+    // Hiện phong bì
+    envelope.classList.remove("hidden");
 }
 
 /* =========================
-   2. TIÊU ĐỀ VÀ NÚT
+   2. MỞ / ĐÓNG PHONG BÌ
 ========================= */
 
-h1 {
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px black;
-}
+function toggleEnvelope() {
+    const envelope = document.getElementById("envelope");
 
-button {
-    padding: 12px 25px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #ff4081;
-    color: white;
-
-    font-size: 18px;
-    cursor: pointer;
+    envelope.classList.toggle("open");
 }
 
 /* =========================
-   3. TRÁI TIM BAY
+   3. TẠO TRÁI TIM BAY
 ========================= */
 
-.heart {
-    position: fixed;
-    bottom: -50px;
+function createHeart() {
+    const heart = document.createElement("div");
 
-    pointer-events: none;
-    z-index: 10;
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
 
-    animation: flyUp linear forwards;
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (Math.random() * 20 + 15) + "px";
+
+    heart.style.animationDuration =
+        (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
 }
 
-@keyframes flyUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
+/* Tạo trái tim mỗi 0,5 giây */
 
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* =========================
-   4. PHONG BÌ
-========================= */
-
-.envelope {
-    position: relative;
-
-    width: 340px;
-    height: 220px;
-
-    margin-top: 20px;
-
-    padding: 0;
-    border: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    perspective: 1000px;
-    overflow: visible;
-
-    isolation: isolate;
-}
-
-.hidden {
-    display: none;
-}
-
-/* =========================
-   5. MẶT SAU PHONG BÌ
-========================= */
-
-.envelope-back {
-    position: absolute;
-    inset: 0;
-
-    background: #ffb6c9;
-    border-radius: 10px;
-
-    z-index: 1;
-}
-
-/* =========================
-   6. LÁ THƯ
-========================= */
-
-.letter {
-    position: absolute;
-
-    width: 320px;
-    height: 195px;
-
-    left: 10px;
-    bottom: 10px;
-
-    background: white;
-    border-radius: 8px;
-
-    color: #e75480;
-    text-align: center;
-
-    padding: 12px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 2;
-
-    transform: translateY(0);
-
-    transition: transform 1.2s ease 0.9s;
-}
-
-.letter h2 {
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-
-.letter p {
-    font-size: 13px;
-}
-
-/* =========================
-   7. MẶT TRƯỚC PHONG BÌ
-========================= */
-
-.envelope-pocket {
-    position: absolute;
-    inset: 0;
-
-    z-index: 3;
-
-    pointer-events: none;
-}
-
-.envelope-front {
-    position: absolute;
-    inset: 0;
-
-    background: #ff8fab;
-    border-radius: 10px;
-
-    clip-path: polygon(
-        0 35%,
-        50% 72%,
-        100% 35%,
-        100% 100%,
-        0 100%
-    );
-}
-
-/* =========================
-   8. NẮP PHONG BÌ
-========================= */
-
-.envelope-flap {
-    position: absolute;
-    inset: 0;
-
-    background: #ffc2d1;
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 58%
-    );
-
-    transform-origin: top center;
-    transform: rotateX(0deg);
-
-    transition: transform 0.9s ease;
-
-    z-index: 4;
-
-    backface-visibility: visible;
-}
-
-/* =========================
-   9. TRÁI TIM TRÊN PHONG BÌ
-========================= */
-
-.heart-seal {
-    position: absolute;
-
-    top: 48%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    font-size: 40px;
-
-    z-index: 5;
-
-    transition: opacity 0.4s ease;
-}
-
-/* =========================
-   10. HIỆU ỨNG MỞ PHONG BÌ
-========================= */
-
-/* Nắp lật ra phía sau */
-
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-/* Lá thư trượt lên */
-
-.envelope.open .letter {
-    transform: translateY(-195px);
-}
-
-/* Ẩn trái tim */
-
-.envelope.open .heart-seal {
-    opacity: 0;
-}
-
-/* =========================
-   11. RESPONSIVE
-========================= */
-
-@media (max-width: 480px) {
-    .envelope {
-        transform: scale(0.85);
-        margin-top: 10px;
-    }
-}
+setInterval(createHeart, 500);
