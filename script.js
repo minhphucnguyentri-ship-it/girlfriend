@@ -38,7 +38,7 @@ function toggleEnvelope() {
                 isAnimating = false;
             }, 900);
 
-        }, 2000);
+        }, 1000);
     }
 
     // ĐANG ĐÓNG → MỞ
