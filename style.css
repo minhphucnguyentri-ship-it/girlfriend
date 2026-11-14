@@ -9,11 +9,6 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    min-height: 100%;
-}
-
 body {
     min-height: 100vh;
 
@@ -34,10 +29,6 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   2. TIÊU ĐỀ VÀ NÚT
-========================= */
-
 h1 {
     margin-bottom: 25px;
     text-shadow: 2px 2px 5px black;
@@ -47,22 +38,23 @@ button {
     padding: 12px 25px;
     border: none;
     border-radius: 10px;
-
     background: #ff4081;
     color: white;
-
     font-size: 18px;
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
+
 /* =========================
-   3. TRÁI TIM BAY
+   2. TRÁI TIM BAY
 ========================= */
 
 .heart {
     position: fixed;
     bottom: -50px;
-
     pointer-events: none;
     z-index: 100;
 
@@ -82,46 +74,30 @@ button {
 }
 
 /* =========================
-   4. PHONG BÌ
+   3. PHONG BÌ
 ========================= */
 
 .envelope {
     position: relative;
-
     width: 440px;
     height: 290px;
-
     margin-top: 30px;
 
-    background: transparent;
-
-    cursor: pointer;
     perspective: 1000px;
-
-    overflow: visible;
     isolation: isolate;
+    cursor: pointer;
 }
-
-.hidden {
-    display: none;
-}
-
-/* =========================
-   5. MẶT SAU
-========================= */
 
 .envelope-back {
     position: absolute;
     inset: 0;
-
     background: #ffb6c9;
     border-radius: 12px;
-
     z-index: 1;
 }
 
 /* =========================
-   6. LÁ THƯ
+   4. LÁ THƯ
 ========================= */
 
 .letter {
@@ -138,7 +114,6 @@ button {
 
     color: #e75480;
     text-align: center;
-
     padding: 20px;
 
     display: flex;
@@ -153,63 +128,23 @@ button {
 }
 
 .letter h2 {
-    font-size: 24px;
     margin-bottom: 15px;
+    font-size: 24px;
 }
 
 .letter p {
     font-size: 17px;
 }
 
-/* Lá thư trượt ra */
+/* Kéo thư ra */
 
 .envelope.letter-out .letter {
     transform: translateY(-120px);
 }
 
 /* =========================
-   7. HAI CÁNH BÊN
+   5. MẶT TRƯỚC PHONG BÌ
 ========================= */
-
-.envelope-side {
-    position: absolute;
-    inset: 0;
-
-    background: #ffb6c9;
-
-    z-index: 3;
-    pointer-events: none;
-}
-
-.envelope-side.left {
-    clip-path: polygon(
-        0 0,
-        50% 0,
-        50% 75%,
-        0 35%
-    );
-}
-
-.envelope-side.right {
-    clip-path: polygon(
-        50% 0,
-        100% 0,
-        100% 35%,
-        50% 75%
-    );
-}
-
-/* =========================
-   8. MẶT TRƯỚC
-========================= */
-
-.envelope-pocket {
-    position: absolute;
-    inset: 0;
-
-    z-index: 4;
-    pointer-events: none;
-}
 
 .envelope-front {
     position: absolute;
@@ -225,10 +160,12 @@ button {
         100% 100%,
         0 100%
     );
+
+    z-index: 3;
 }
 
 /* =========================
-   9. NẮP PHONG BÌ
+   6. NẮP PHONG BÌ
 ========================= */
 
 .envelope-flap {
@@ -251,11 +188,17 @@ button {
     transition: transform 0.9s ease;
 
     z-index: 5;
-    backface-visibility: visible;
+}
+
+/* Mở nắp */
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
 }
 
 /* =========================
-   10. TRÁI TIM
+   7. TRÁI TIM GIỮA PHONG BÌ
 ========================= */
 
 .heart-seal {
@@ -267,18 +210,9 @@ button {
     transform: translate(-50%, -50%);
 
     font-size: 48px;
-
     z-index: 6;
+
     transition: opacity 0.4s ease;
-}
-
-/* =========================
-   11. HIỆU ỨNG MỞ
-========================= */
-
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 1;
 }
 
 .envelope.open .heart-seal {
@@ -286,7 +220,7 @@ button {
 }
 
 /* =========================
-   12. RESPONSIVE
+   8. RESPONSIVE
 ========================= */
 
 @media (max-width: 500px) {
