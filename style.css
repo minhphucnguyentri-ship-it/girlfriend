@@ -242,25 +242,21 @@ button {
 ========================= */
 
 /* Nắp lật ra phía sau */
-
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
-/* Lá thư trượt lên */
-
+/* Lá thư trồi lên từ từ */
 .envelope.open .letter {
-    transform: translateY(-220px);
+    transform: translateY(-120px);
     z-index: 2;
 }
 
 /* Ẩn trái tim */
-
 .envelope.open .heart-seal {
     opacity: 0;
 }
-
 /* =========================
    11. RESPONSIVE
 ========================= */
