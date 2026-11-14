@@ -272,18 +272,42 @@ button {
 
 /* Nắp lật ra phía sau */
 
+
+/* NẮP PHONG BÌ */
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+
+    background: #ffc2d1;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 58%
+    );
+
+    transform-origin: 50% 0%;
+    transform: rotateX(0deg);
+
+    transition: transform 0.9s ease;
+
+    z-index: 4;
+
+    backface-visibility: visible;
+}
+
+/* KHI MỞ PHONG BÌ */
 .envelope.open .envelope-flap {
-    transform: rotateX(-180deg);
+    transform: rotateX(180deg);
     z-index: 0;
 }
-/* Lá thư trượt lên */
 
+/* LÁ THƯ */
 .envelope.open .letter {
-    transform: translateY(-155px);
+    transform: translateY(-195px);
 }
 
-/* Ẩn trái tim */
-
+/* ẨN TRÁI TIM */
 .envelope.open .heart-seal {
     opacity: 0;
 }
