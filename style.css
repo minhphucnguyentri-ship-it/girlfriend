@@ -192,48 +192,6 @@ button {
     );
 }
 
-/* Miếng che bên trái */
-
-.envelope-pocket::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    top: 35%;
-
-    width: 50%;
-    height: 40%;
-
-    background: #ff8fab;
-
-    clip-path: polygon(
-        0 0,
-        100% 100%,
-        0 100%
-    );
-}
-
-/* Miếng che bên phải */
-
-.envelope-pocket::after {
-    content: "";
-
-    position: absolute;
-    right: 0;
-    top: 35%;
-
-    width: 50%;
-    height: 40%;
-
-    background: #ff8fab;
-
-    clip-path: polygon(
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-}
-
 /* =========================
    8. NẮP PHONG BÌ
 ========================= */
@@ -283,15 +241,21 @@ button {
    10. HIỆU ỨNG MỞ PHONG BÌ
 ========================= */
 
+/* Nắp lật ra phía sau */
+
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
     z-index: 1;
 }
 
+/* Lá thư trượt lên */
+
 .envelope.open .letter {
-    transform: translateY(-260px);
-    z-index: 4;
+    transform: translateY(-220px);
+    z-index: 2;
 }
+
+/* Ẩn trái tim */
 
 .envelope.open .heart-seal {
     opacity: 0;
