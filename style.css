@@ -39,6 +39,7 @@ h1 {
 
 button {
     padding: 12px 25px;
+
     border: none;
     border-radius: 10px;
 
@@ -82,10 +83,10 @@ button {
 .envelope {
     position: relative;
 
-    width: 260px;
-    height: 170px;
+    width: 340px;
+    height: 220px;
 
-    margin-top: 10px;
+    margin-top: 20px;
 
     padding: 0;
     border: none;
@@ -118,38 +119,6 @@ button {
     z-index: 1;
 }
 
-/* Tam giác phía sau */
-
-.envelope-back::before {
-    content: "";
-
-    position: absolute;
-
-    width: 100%;
-    height: 115px;
-
-    left: 0;
-    bottom: calc(100% - 2px);
-
-    background: #ff4b55;
-
-    clip-path: polygon(
-        50% 0,
-        100% 100%,
-        0 100%
-    );
-
-    opacity: 0;
-
-    transition: opacity 0.4s ease 0.5s;
-}
-
-/* Hiện tam giác khi mở */
-
-.envelope.open .envelope-back::before {
-    opacity: 1;
-}
-
 /* =========================
    6. LÁ THƯ
 ========================= */
@@ -157,19 +126,19 @@ button {
 .letter {
     position: absolute;
 
-    width: 240px;
-    height: 145px;
+    width: 320px;
+    height: 195px;
 
     left: 10px;
     bottom: 10px;
 
     background: white;
-    border-radius: 6px;
+    border-radius: 8px;
 
     color: #e75480;
     text-align: center;
 
-    padding: 10px;
+    padding: 12px;
 
     display: flex;
     flex-direction: column;
@@ -259,7 +228,7 @@ button {
 
     transform: translate(-50%, -50%);
 
-    font-size: 32px;
+    font-size: 40px;
 
     z-index: 5;
 
@@ -274,13 +243,13 @@ button {
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
-    z-index: 0;
+    z-index: 1;
 }
 
 /* Lá thư trượt lên */
 
 .envelope.open .letter {
-    transform: translateY(-155px);
+    transform: translateY(-195px);
 }
 
 /* Ẩn trái tim */
@@ -295,7 +264,7 @@ button {
 
 @media (max-width: 480px) {
     .envelope {
-        transform: scale(0.9);
+        transform: scale(0.85);
         margin-top: 10px;
     }
 }
