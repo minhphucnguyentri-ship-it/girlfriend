@@ -1,12 +1,8 @@
 
-/* =========================
-   1. BIẾN ĐIỀU KHIỂN
-========================= */
-
 let isAnimating = false;
 
 /* =========================
-   2. HIỆN PHONG BÌ
+   1. HIỆN PHONG BÌ
 ========================= */
 
 function showEnvelope() {
@@ -18,16 +14,13 @@ function showEnvelope() {
 }
 
 /* =========================
-   3. MỞ / ĐÓNG PHONG BÌ
+   2. MỞ / ĐÓNG PHONG BÌ
 ========================= */
 
 function toggleEnvelope() {
     const envelope = document.getElementById("envelope");
 
-    // Không cho bấm khi hiệu ứng đang chạy
-    if (isAnimating) {
-        return;
-    }
+    if (isAnimating) return;
 
     isAnimating = true;
 
@@ -39,30 +32,25 @@ function toggleEnvelope() {
 
         // Chờ 2 giây rồi đóng nắp
         setTimeout(() => {
-
             envelope.classList.remove("open");
 
-            // Chờ nắp đóng xong
             setTimeout(() => {
                 isAnimating = false;
             }, 900);
 
         }, 2000);
-
     }
 
     // ĐANG ĐÓNG → MỞ
     else {
 
-        // Mở nắp
+        // Mở nắp trước
         envelope.classList.add("open");
 
         // Chờ 1 giây rồi kéo thư ra
         setTimeout(() => {
-
             envelope.classList.add("letter-out");
 
-            // Chờ thư trượt xong
             setTimeout(() => {
                 isAnimating = false;
             }, 1200);
@@ -72,7 +60,7 @@ function toggleEnvelope() {
 }
 
 /* =========================
-   4. TẠO TRÁI TIM BAY
+   3. TẠO TRÁI TIM BAY
 ========================= */
 
 function createHeart() {
@@ -81,27 +69,23 @@ function createHeart() {
     heart.className = "heart";
     heart.textContent = "❤️";
 
-    // Vị trí ngẫu nhiên
     heart.style.left = Math.random() * 100 + "vw";
 
-    // Kích thước ngẫu nhiên
     heart.style.fontSize =
         (Math.random() * 20 + 15) + "px";
 
-    // Tốc độ bay ngẫu nhiên
     heart.style.animationDuration =
         (Math.random() * 3 + 3) + "s";
 
     document.body.appendChild(heart);
 
-    // Xóa trái tim sau khi bay xong
     setTimeout(() => {
         heart.remove();
     }, 6000);
 }
 
 /* =========================
-   5. TẠO TRÁI TIM LIÊN TỤC
+   4. TẠO TRÁI TIM LIÊN TỤC
 ========================= */
 
 setInterval(createHeart, 500);
